@@ -1,0 +1,30 @@
+//this is for API testing, using plugin called Rest Client on VS Code
+//Rest Client is similar to Insomnia and Postman
+
+GET http://localhost:5000/users
+//Delete the headers authorization if u want to try it without token access, dont forget to delete the code on routes>index.js at line 8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJSaWRoYSBBa21hbCIsImVtYWlsIjoicmlkaGFha21hbHB1dHJhQGdtYWlsLmNvbSIsImlhdCI6MTY2MTI0Mzc5MSwiZXhwIjoxNjYxMjQzODA2fQ.TCrhtjcrP315WVpDb6iVmn5_nrAsC1yr00OZfhqQ7xI
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+//this the example to test the function of data input
+{
+    "name": "Ridha Akmal",
+    "email": "ridhaakmalputra@gmail.com",
+    "password": "123456",
+    "confPassword": "123456"
+}
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+//this is to test the login function
+{
+    "email": "ridhaakmalputra@gmail.com",
+    "password": "123456"
+}
+
+### this is to get the refresh token
+GET http://localhost:5000/token 
+
+### this is to destroy database user connection
+DELETE http://localhost:5000/logout
